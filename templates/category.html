@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block metadicription %}
+    {% if category %}
+        {{ category.discription|truncatechars:150 }}
+    {% else %}
+        <p>Welcome to MAX CART</p>
+    {% endif %}
+{% endblock %}
+
+{% block title %}
+    {% if category %}
+        {{ category.name }}
+    {% else %}
+        Find everythng you needed
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+{% if category %}
+    <div>
+        <div class="row myrow_class">
+            <div class="mx-auto">
+            <P><a href="{% url 'shop:allcatproduct' %}">Our products</a></P>
+        </div>
+            </div>
+    </div>
+{% endif %}
+<div>
+    {% if category %}
+    <div class="mx-auto">
+        <img class="my_image" src="{{category.image.url}}" alt="{{category.name}}">
+    </div>
+    <br>
+    <div>
+        <h3>{{category.name}}</h3><br>
+    </div>
+    <div>
+        <p>{{category.discription}}</p>
+    </div>
+    {% else %}
+    <div>
+       <img class="my_image" src="{% static 'img/banner.png' %}" alt="banner image" >
+    </div><br>
+    <div>
+        <h2 class="text-center my_title">Our Book Collections</h2><br>
+        <p class="text-justify">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+    </div><br>
+{% endif %}
+</div>
+<div class="container">
+<div class="row mx_auto">
+    {% for product in products.object_list %}
+    <div class="bottom_margin col-9 col-sm-12 col-md-4 col-lg-4">
+        <div class="card text-center h-100" style="min-width:18rem";>
+
+            <a href="{{product.get_url}}"><img class="card-img-top" src="{{product.image.url}}" width="300px"; height="300px";></a><br>
+
+            <div class="card-body">
+                <h4 class="card_title">{{product.name}}</h4>
+                <p>${{product.price}}</p>
+            </div>
+        </div>
+     </div><br>
+    {% endfor %}
+</div>
+<div class="mx_auto">
+    {% if products.paginator.num_pages > 1 %}
+    <hr>
+    <div class="text-center">
+        {% for pg in products.paginator.page_range %}
+            <a href="?page={{pg}}" class="btn btn-light btn-sm {% if products.number == pg %} active {% endif %}">{{pg}}</a>
+        
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+</div>
+{% endblock %}

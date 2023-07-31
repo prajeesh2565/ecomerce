@@ -1,0 +1,83 @@
+body{
+    font-family: 'Barlow', sans-serif;
+}
+
+/***navbar***/
+.nav-item{
+    letter-spacing:.2em;
+    font-size:14px;
+    text-transform:uppercase;
+}
+.dropdown-item{
+    letter-spacing:.2em;
+    font-size:14px;
+    text-transform:uppercase;
+
+}
+.my_footer{
+    background-color:#f8f9fa;
+}
+
+.my_footer.p{
+    padding-top:20px;
+    font-size:14px;
+}
+
+/*** category page ***/
+
+.myrow_class{
+    padding-top:14px;
+}
+
+.myrow_class.mx-auto{
+    color:#000;
+    font-size:14px;
+}
+.my_image{
+    width:100%;
+    height:auto;
+}
+.my_title{
+    font-size:20px;
+    text-transform:uppercase;
+    letter-spacing:.2em;
+}
+
+.card_title{
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:.2em;
+}
+
+.margin_bottom{
+    margin-bottom:10px;
+}
+
+/***cart***/
+
+.costum_table{
+    font-size: 14px;
+    min-width: 400px;
+}
+
+.custom_thead{
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    background-color: #f8f8fa!important;
+}
+
+.custon_a{
+    text-decoration: none;
+}
+
+.custom_icon{
+    text-decoration: none;
+    color: #8e86e9!important;
+}
+
+.custom_button{
+    padding-top: 5px;
+    align-self: center;
+}
+
